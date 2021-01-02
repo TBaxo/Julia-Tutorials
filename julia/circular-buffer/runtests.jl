@@ -138,7 +138,7 @@ end
 end
 
 # Uncomment the following line to enable bonus tests.
-# enable_bonus_tests = true
+enable_bonus_tests = true
 
 if @isdefined(enable_bonus_tests) && enable_bonus_tests
     println("\nBonus tests enabled.\n")
@@ -178,7 +178,7 @@ if @isdefined(enable_bonus_tests) && enable_bonus_tests
                 @test isfull(cb) == true
                 @test convert(Array, cb) == Int[4,5,6,7,8]
             end
-
+            
             @testset "getindex" begin
                 @test cb[1] == 4
                 @test cb[2] == 5
@@ -242,7 +242,7 @@ if @isdefined(enable_bonus_tests) && enable_bonus_tests
             end
             for j in 5:-1:1
                 @test pop!(cb) == j
-                @test convert(Array, cb) == collect(1:j-1)
+                @test convert(Array, cb) == collect(1:j - 1)
             end
             @test isempty(cb)
             @test_throws BoundsError pop!(cb)
@@ -255,7 +255,7 @@ if @isdefined(enable_bonus_tests) && enable_bonus_tests
             end
             for j in 1:5
                 @test popfirst!(cb) == j
-                @test convert(Array, cb) == collect(j+1:5)
+                @test convert(Array, cb) == collect(j + 1:5)
             end
             @test isempty(cb)
             @test_throws BoundsError popfirst!(cb)
